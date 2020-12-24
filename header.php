@@ -8,12 +8,24 @@
  */
 ?>
 
+<?php
+//Si nos encontramos ante una búsqueda ajustar el title.
+$tituloPágina = get_bloginfo( 'name' );
+if($_GET['s']!='') {
+  $tituloPágina = esc_html("($wp_query->post_count) " . esc_html(__( 'Search results for: ', 'omnibus-prime' ) . $_GET['s']) . " | $tituloPágina");
+}
+
+//Preparacion de tag que debe rodear al logo h1 en home, span en el resto.
+$logoTag = "span";
+if(is_home()) $logoTag= "h1";
+?>
+
 <!doctype html>
 <html class="no-js" dir="<?php echo ( is_rtl() ? 'rtl' : 'ltr' ); ?>" lang="<?php bloginfo( 'language' ); ?>">
 <head>
 
   <meta charset="<?php bloginfo( 'charset' ); ?>">
-  <title><?php bloginfo( 'name' ); ?></title>
+  <title><?php echo $tituloPágina; ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="<?php bloginfo( 'description' ); ?>">
   <link rel="profile" href="http://gmpg.org/xfn/11">
@@ -23,30 +35,15 @@
 </head>
 <body <?php body_class( 'app-bar--top' ); ?>>
 
-  <div class="jump-links" role="navigation">
-
-    <ul>
-      <li>
-
+  <div class="jump-links" role="navigation" aria-label="Jump to Content Link">
         <a class="jump-link" href="#main__content"><?php _e( 'Jump to main content', 'omnibus-prime' ); ?></a>
-
-      </li>
-      <li>
-
-        <button class="jump-link" onclick="document.getElementById('s').focus();" type="button">
-          <?php _e( 'Jump to search', 'omnibus-prime' ); ?>
-        </button>
-
-      </li>
-    </ul>
-
-  </div>
+ </div>
 
   <div id="app-bar" class="app bar top">
 
     <header>
 
-      <h1>
+      <<?php echo $logoTag;?> class="tituloWeb">
         <a class="h-card vcard u-url url home" href="<?php echo home_url(); ?>">
 
           <?php if ( function_exists( 'the_custom_logo' )  && has_custom_logo() ) { ?>
@@ -61,7 +58,7 @@
           <?php } ?>
 
         </a>
-      </h1>
+      </<?php echo $logoTag;?>>
 
       <?php if ( has_nav_menu( 'primary' ) ) { ?>
 
@@ -76,7 +73,7 @@
 
     <?php if ( has_nav_menu( 'primary' ) ) { ?>
 
-      <nav role="navigation">
+      <nav role="navigation" aria-label="Main menu">
         <?php wp_nav_menu( array(
           'container_class'  => 'subheading',
           'container_id'     => 'app-bar__menu',

@@ -4,7 +4,7 @@ Theme URI: https://github.com/puxl/WordPress-theme-Omnibus-Prime/
 Author: Iñigo Garcia (@MrKanuel)
 Author URI: https://kanuel.com/
 Description: A classic blog starter theme, made using PUXL framework, tailor-fitted for WordPress. Have your stories accessible, WCAG 2.1 AA compliant with zero effort: color-contrasted, responsive, customizable, human and eco-friendly.
-Version: 1.0-beta
+Version: 1.0.1-beta
 License: GNU General Public License v3.0
 License URI: https://github.com/puxl/WordPress-theme-Omnibus-Prime/blob/master/LICENSE
 Tags: HTML5, CSS3, semantic, rtl-language-support, accessible, WCAG 2.1 AA, WCAG contrast, responsive, microformats, microformats2, blog, two-columns, right-sidebar, custom-menu, featured-images, align-wide, custom-logo, post-formats, post-thumbnails, sticky-post, translation-ready
@@ -14,8 +14,7 @@ This theme is free and open-source.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-@charset 'UTF-8';
-
+@charset "UTF-8";
 
 
 body > .grid {
@@ -55,7 +54,7 @@ main {
       padding:          1.5em;
     }
 
-    > header {
+   > header {
       h2 {
         line-height:      1em;
         margin-bottom:    .25em;
@@ -583,4 +582,13 @@ main {
                   auto;
       width:      10em;
     }
+  }
+
+  /* Web title */
+  
+  .tituloWeb {
+    font-size: calc(1vw + 2em);
+    font-weight: bold;
+    line-height: 1.125em;
+      margin: 0 0 var(--body--line-height);
   }

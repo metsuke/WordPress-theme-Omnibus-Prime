@@ -18,7 +18,7 @@
 
     <section id="reactions">
 
-      <h3><?php _e( 'Reactions', 'omnibus-prime' ); ?></h3>
+      <h2><?php _e( 'Reactions', 'omnibus-prime' ); ?></h2>
 
       <?php
         if ( !empty ( $comments_by_type['comment'] ) ) {
@@ -95,7 +95,7 @@
 
         <section id="comments">
 
-          <h4><?php _e( 'Comments: ', 'omnibus-prime' ); ?></h4>
+          <h3><?php _e( 'Comments: ', 'omnibus-prime' ); ?></h3>
 
           <ol class="h-feed hfeed p-comments comment-list">
             <?php wp_list_comments( array(
@@ -125,7 +125,7 @@
 
         <section id="pingbacks">
 
-          <h4><?php _e( 'Pingbacks: ', 'omnibus-prime' ); ?></h4>
+          <h3><?php _e( 'Pingbacks: ', 'omnibus-prime' ); ?></h3>
 
           <ol class="h-feed hfeed pingback-list">
             <?php wp_list_comments( array(
@@ -152,7 +152,7 @@
 
         <section id="trackbacks">
 
-          <h4><?php _e( 'Trackbacks: ', 'omnibus-prime' ); ?></h4>
+          <h3><?php _e( 'Trackbacks: ', 'omnibus-prime' ); ?></h3>
 
           <ol class="h-feed hfeed trackback-list">
             <?php wp_list_comments( array(

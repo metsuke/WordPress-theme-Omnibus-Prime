@@ -12,7 +12,7 @@ get_header(); ?>
 
     <main id="main__content" class="h-feed col-xs-12 col-md-8" role="main">
 
-      <h2><?php _e( 'Search results', 'omnibus-prime' ); ?></h2>
+      <h1><?php echo "($wp_query->post_count) " . esc_html(__( 'Search results for: ', 'omnibus-prime' ) . $s) ; ?></h1>
 
       <?php
         if ( have_posts() ) {

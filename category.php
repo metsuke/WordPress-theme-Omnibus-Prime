@@ -14,16 +14,16 @@
 
     <main id="main__content" class="h-feed col-xs-12 col-md-8" role="main">
 
-      <h2>
+      <h1>
         <?php
           $category = get_queried_object();
           echo
-            __( 'Entries with the category', 'omnibus-prime' ) .
-            ' <b>' .
+            esc_html(__('Entries with the category', 'omnibus-prime' )) .
+            ' <strong>' .
             $category->slug .
-            ' </b>:';
+            ' </strong>:';
         ?>
-      </h2>
+      </h1>
 
       <?php
         if ( is_category() ) {

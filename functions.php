@@ -7,6 +7,9 @@
  * @version 1.0
  */
 
+// This enables debugging.
+define( 'WP_DEBUG', true );
+
 function omnibus_prime_register_menus() {
   register_nav_menus( array(
     'primary' => __( 'Header: Primary navigation' ),
@@ -79,8 +82,8 @@ function omnibus_prime_widgets_init() {
       'description'   => 'This is the first widget area, on the lateral side of the site.',
       'before_widget' => '<section id="widgets-1__%1$s" class="widget %1$s">',
       'after_widget'  => '</section>',
-      'before_title'  => '<h3>',
-      'after_title'   => '</h3>'
+      'before_title'  => '<h2>',
+      'after_title'   => '</h2>'
     ) );
 
     register_sidebar( array(
@@ -89,24 +92,47 @@ function omnibus_prime_widgets_init() {
       'description'   => 'This is the second widget area, on the bottom side of the site.',
       'before_widget' => '<section id="widgets-2__%1$s" class="widget %1$s col-xs-12 col-md-4">',
       'after_widget'  => '</section>',
-      'before_title'  => '<h3>',
-      'after_title'   => '</h3>'
+      'before_title'  => '<h2>',
+      'after_title'   => '</h2>'
     ) );
   }
 
 }
 
 function omnibus_prime_scripts() {
-//  wp_enqueue_style( 'puxl', 'https://www.kanuel.com/pruebas/puxl.css', false, '1-beta' );
+  //  wp_enqueue_style( 'puxl', 'https://www.kanuel.com/pruebas/puxl.css', false, '1-beta' );
 ////  wp_enqueue_style( 'puxl_framework', get_template_directory_uri() . '/assets/css/puxl.min.css', puxl, '1.0', 'all' );
 //  wp_enqueue_style( 'omnibus_prime_style', get_template_directory_uri() . '/style.css', puxl, '1.0', 'all' );
 //  wp_enqueue_script( 'puxl_app_bar', get_template_directory_uri() . '/assets/js/puxl-js/appBar.js', array(), 1.0, true );
 ////  wp_enqueue_script( 'puxlAppBar', 'https://puxl.io/js/puxl-js/appBar.js', array(), 1.0, true );
 ////  wp_enqueue_script( 'omnibus_prime_script', get_template_directory_uri() . '/assets/js/script.js', array( 'puxlAppBar' ), 1.0, true );
 
-  wp_enqueue_style( 'puxl_framework_style', get_template_directory_uri() . '/assets/puxl-framework_1-beta/css/puxl.css', puxl, '1.0', 'all' );
-  wp_enqueue_style( 'omnibus_prime_style', get_template_directory_uri() . '/style.css', puxl, '1.0', 'all' );
-  wp_enqueue_script( 'puxl_app_bar', get_template_directory_uri() . '/assets/puxl-framework_1-beta/js/puxl-js/appBar.js', array(), 1.0, true );
+/* 
+  Este array permite actualizar los datos requeridos para incorporar ∫puxl sin tener que andar trasteando en el propio enqueue.
+
+  Importante:Paths en array relativo respecto de $puxlPath Directory
+  
+*/
+
+  //Parametros Omnibus
+  $omnibusData = array(
+    "omnibus-css-ver" => "1.0.1"
+    ,"omnibus-css-path" =>  get_template_directory_uri() . '/style.css'
+  );
+
+  //Parámetros PUXL Framework
+  $puxPath = get_template_directory_uri() . "/assets/puxl-framework_1-beta/";
+  $puxlData = array(
+    "puxl-css-ver" => "1.0"
+    ,"puxl-css-path" => $puxPath . "css/puxl.css"
+    ,"puxl-bar-js-ver" => "1.0"
+    ,"puxl-bar-js-path" => $puxPath . "js/puxl-js/appBar.js"
+  );
+
+  //Insercion elementos en el queue en base a parametros anteriores.
+  wp_enqueue_style('puxl_framework_style', $puxlData["puxl-css-path"], array(), $puxlData["puxl-css-ver"], 'all' );
+  wp_enqueue_style('omnibus_prime_style', $omnibusData["omnibus-css-path"], array("puxl_framework_style"), $omnibusData["omnibus-css-ver"], 'all' );
+  wp_enqueue_script('puxl_app_bar', $puxlData["puxl-bar-js-path"] , array(), $puxlData["puxl-bar-js-ver"],true );
 
   if ( is_singular() ) {
     wp_enqueue_script( 'comment-reply' );

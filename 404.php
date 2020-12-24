@@ -14,7 +14,7 @@
 
     <main id="main__content" class="h-feed col-xs-12 col-md-8" role="main">
 
-      <h2 class="text--center"><?php _e( 'Sorry, 404 - Not found', 'omnibus-prime' ); ?></h2>
+      <h1 class="text--center"><?php _e( 'Sorry, 404 - Not found', 'omnibus-prime' ); ?></h1>
 
       <p><?php _e( 'You can do the following:', 'omnibus-prime' ); ?></p>
 
@@ -63,7 +63,7 @@
         if ( $recent_posts ) {
       ?>
 
-        <h3>Recent Posts</h3>
+        <h2>Recent Posts</h2>
 
         <ul>
           <?php

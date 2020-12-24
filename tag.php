@@ -14,16 +14,16 @@
 
     <main id="main__content" class="h-feed col-xs-12 col-md-8" role="main">
 
-      <h2>
+      <h1>
         <?php
           $tag = get_queried_object();
           echo
             __( 'Entries with the tag', 'omnibus-prime' ) .
-            ' <b>' .
+            ' <strong>' .
             $tag->slug .
-            ' </b>:';
+            ' </strong>:';
         ?>
-      </h2>
+      </h1>
 
       <?php
         if ( is_tag() ) {

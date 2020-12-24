@@ -14,11 +14,11 @@
 
     <main id="main__content" class="h-feed col-xs-12" role="main">
 
-      <h2><?php _e( 'Archive', 'omnibus-prime' ); ?></h2>
+      <h1><?php _e( 'Archive', 'omnibus-prime' ); ?></h1>
 
       <section id="archive__search">
 
-        <h3><?php _e( 'Search', 'omnibus-prime' ); ?></h3>
+        <h2><?php _e( 'Search', 'omnibus-prime' ); ?></h2>
 
         <?php get_search_form(); ?>
 
@@ -28,7 +28,7 @@
 
       <section id="archive__months">
 
-        <h3><?php _e( 'Posts by Month:', 'omnibus-prime' ); ?></h3>
+        <h2><?php _e( 'Posts by Month:', 'omnibus-prime' ); ?></h2>
 
         <ul>
           <?php wp_get_archives( 'type=monthly' ); ?>
@@ -40,7 +40,7 @@
 
       <section id="archive__categories">
 
-        <h3><?php _e( 'Posts by category:', 'omnibus-prime' ); ?></h3>
+        <h2><?php _e( 'Posts by category:', 'omnibus-prime' ); ?></h2>
 
         <ul>
           <?php

@@ -28,7 +28,7 @@
 
       <?php if ( has_nav_menu( 'social' ) ) { ?>
 
-        <nav class="col-xs-12" role="navigation">
+        <nav class="col-xs-12" role="navigation" aria-label="Social Menu">
           <?php wp_nav_menu( array(
             'theme_location' => 'social',
             'menu_class'     => 'unlisted h',
