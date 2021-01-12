@@ -1,0 +1,41 @@
+# From http://www.ladysign-apps.com/developer/remove-ds_store-files-from-my-git-repo-and-ignore-them/#.VvuOl2PIPBI
+
+# find . -name '*.DS_Store' -type f -delete
+# create this in a .gitignore file
+# commit
+
+/.buildpath
+/build/
+*/archive/
+
+__MACOSX
+.DS_Store
+
+.project
+.settings
+.classpath
+.sass-cache/
+
+# OS generated files #
+######################
+*/.DS_Store
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
